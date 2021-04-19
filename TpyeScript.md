@@ -375,9 +375,9 @@ let arr = getArray<number>(3, 4)
 
 需求：定义一个函数用于根据指定得Key获取对象得value
 
-```s
+```typescript
 let getProps=(obj,key)=>{
-return obj[key];
+	return obj[key];
 }
 ```
 
