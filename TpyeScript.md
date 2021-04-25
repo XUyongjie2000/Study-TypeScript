@@ -569,3 +569,58 @@ let res = fn(1,2);
 逆变（Contravariant）：只在相反的方向；
 双向协变（Bivariant）：包括同一个方向和不同方向；
 不变（Invariant）：如果类型不完全相同，则它们是不兼容的。
+
+#### *defineProperty*
+
+作用：可以用来精确添加或修改对象的属性 只需要在descriptor对象中将属性特性描述的清楚
+
+- *数据描述符 它拥有四个属性配置*
+- *configurable：数据是否可删除 可配置*
+- *enumerable：属性是否可枚举*
+- *value：属性值，默认是否可枚举*
+- *writable:属性是否可读写 
+
+```javascript
+let obj = { name: 'zs' }
+
+Object.defineProperty(obj, 'age', { value: 18 });
+console.log(obj);//name: "zs" age: 18   添加age属性
+```
+
+- *true代表可读可写 false不可读写* 
+
+```javascript
+let obj = { name: 'zs', age: 18 }
+
+Object.defineProperty(obj, 'age', {
+    writable: false//true可以修改
+});
+
+obj.age = 9;//修改不了 
+console.log(obj);//age: 18 name: "zs"
+```
+
+- *configurable：数据是否可删除 可配置*
+
+```javascript
+let obj = { name: 'zs', age: 18 }
+Object.defineProperty(obj, 'age', {
+    configurable: false //true可以删除
+});
+delete obj.age
+console.log(obj);//age: 18 name: "zs" 删不掉
+```
+
+- *enumerable：属性是否可枚举*
+
+```javascript
+let obj = { name: 'zs', age: 18 }
+//age不可枚举
+Object.defineProperty(obj, 'age', {
+    enumerable: false
+});
+for (const key in obj) {
+    console.log(obj[key]);//zs age不可枚举
+}
+```
+
