@@ -7,15 +7,15 @@
         @del="deleteProducr"
         @add="addproduct"
         @sub="subproduct"
-      ></CartList>
-      <CartTotal :product-list="productList"></CartTotal> -->
+      ></CartList>-->
+      <CartTotal :product-list="productList"></CartTotal>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 //1.导入vue中的defineComponent
-import { defineComponent, ref } from "vue";
+import { defineComponent, reactive, ref } from "vue";
 //2.导入组件
 import CartTitle from "./components/CartTitle/index.vue";
 export default defineComponent({
@@ -26,12 +26,54 @@ export default defineComponent({
     //定义一个初始化数据 let xxxx =ref(初始化值)
     //渲染购物车title
     const userName = ref<string>("洛杉矶");
+    type Product = {
+      id: number;
+      name: string;
+      price: number;
+      num: number;
+      img: string;
+    };
+    const ProductList: Array<Product> = reactive([
+      {
+        id: 1,
+        name: "TCL彩电",
+        price: 1000,
+        num: 1,
+        img: "img/a.jpg",
+      },
+      {
+        id: 2,
+        name: "机顶盒",
+        price: 1000,
+        num: 1,
+        img: "img/b.jpg",
+      },
+      {
+        id: 3,
+        name: "海尔冰箱",
+        price: 1000,
+        num: 1,
+        img: "img/c.jpg",
+      },
+      {
+        id: 4,
+        name: "小米手机",
+        price: 1000,
+        num: 1,
+        img: "img/d.jpg",
+      },
+      {
+        id: 5,
+        name: "PPTV电视",
+        price: 1000,
+        num: 2,
+        img: "img/e.jpg",
+      },
+    ]);
 
-    const ProductList=[
-      
-    ]
     return {
       userName,
+      ProductList,
     };
   },
   components: {
