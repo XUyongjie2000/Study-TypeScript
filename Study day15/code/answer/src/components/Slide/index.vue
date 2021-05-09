@@ -41,7 +41,7 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style scoped>
 body,
 ul,
 ol,
@@ -51,7 +51,10 @@ img {
   padding: 0;
   list-style: none;
 }
-
+* {
+  margin: 0;
+  padding: 0;
+}
 #box {
   width: 520px;
   height: 280px;

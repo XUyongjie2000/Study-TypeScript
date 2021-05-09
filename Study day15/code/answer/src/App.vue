@@ -3,6 +3,8 @@
     <router-link to="/slide">图片切换</router-link>
     &nbsp;&nbsp;&nbsp;&nbsp;
     <router-link to="/todolist">小目标列表</router-link>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <router-link to="/message">留言板</router-link>
     <hr />
 
     <router-view></router-view>
